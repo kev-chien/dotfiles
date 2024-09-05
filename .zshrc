@@ -1,4 +1,6 @@
 # Oh My Zsh
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -40,4 +42,10 @@ gch() {
 
 # tmux conf
 alias tmuxrc='nvim ~/.tmux.conf'
+
+# nvim conf
+alias nvimrc='nvim ~/.config/nvim/init.vim'
+# for nvim colors to match
+COLORTERM="truecolor"
+export BAT_THEME="Nord"
 

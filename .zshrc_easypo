@@ -12,12 +12,8 @@ phab_clone() {
 	phab list-repositories | jq -r '.name' | fzf --ansi --reverse +m --tiebreak=index --bind alt-j:preview-down,alt-k:preview-up --preview "phab get-file {} README.md | bat --color=always -l md --plain" --preview-window=right,70% | xargs -I {} --no-run-if-empty git clone ssh://git@phab.easypo.net:2222/source/{}.git
 }
 
-# nvim
+# nvim binary
 export PATH=/opt/nvim-linux64/bin:$PATH
-alias nvimrc='nvim ~/.config/nvim/init.vim'
-# for nvim colors to match
-COLORTERM="truecolor"
-export BAT_THEME="Nord"
 
 # arc
 alias al='arc land --onto master'
