@@ -17,11 +17,10 @@
     stripComponents = 1
     refreshPeriod = "168h"
 [".oh-my-zsh/custom/themes/powerlevel10k"]
-    type = "git-repo"
-    url = "https://github.com/romkatv/powerlevel10k.git"
+    type = "archive"
+    url = "https://github.com/romkatv/powerlevel10k/archive/v1.20.0.tar.gz"
     exact = true
     stripComponents = 1
-    refreshPeriod = "168h"
 [".tmux/plugins/tpm"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm"
