@@ -1,1 +1,7 @@
 .oh-my-zsh/cache/
+{{ if ne .chezmoi.os "darwin" }}
+.zshrc_darwin
+{{ end }}
+{{ if contains "easypo" .chezmoi.fqdnHostname | not }}
+.zshrc_easypo
+{{ end }}

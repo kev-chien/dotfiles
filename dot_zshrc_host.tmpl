@@ -1,5 +1,0 @@
-{{- if eq .chezmoi.os "darwin" -}}
-{{-   include ".zshrc_host_darwin" -}}
-{{- else if contains "easypo" .chezmoi.fqdnHostname -}}
-{{-   include ".zshrc_host_easypo" -}}
-{{- end -}}

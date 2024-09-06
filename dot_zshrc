@@ -29,10 +29,7 @@ alias zshrc='nvim ~/.zshrc'
 alias szshrc='source ~/.zshrc'
 
 # source machine-specific .zshrc
-if [ -f ~/.zshrc_host ];
-then
-    source ~/.zshrc_host
-fi
+source ~/.zshrc_*
 
 # source .env file
 if [ -f ~/.env ];
