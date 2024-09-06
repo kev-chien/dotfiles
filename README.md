@@ -2,6 +2,14 @@
 
 > kev-chien's configuration files managed by [chezmoi](https://github.com/twpayne/chezmoi). Uses [Zsh](https://en.wikipedia.org/wiki/Z_shell), [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh/) for plugins and themes, and more (to come).
 
+## Dependencies
+
+Before installing, you should have the following dependencies installed:
+- [chezmoi](https://github.com/twpayne/chezmoi/)
+- [zsh](https://www.zsh.org/)
+- [tmux](https://github.com/tmux/tmux)
+- [neovim](https://github.com/neovim/neovim)
+
 ## Installation/Setup
 
 ### One Command
@@ -24,3 +32,14 @@ Run `sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply kev-chien` to get ever
 
 The font I use is [Victor Mono](https://github.com/rubjo/victor-mono).
 
+## What's Included
+[] zsh
+    [x] oh-my-zsh (automatically installed)
+    [x] zsh-autosuggestions
+    [x] zsh-syntax-highlighting
+    [x] easypost-specific configs
+[] nvim
+    [] TODO: automatically installed
+    [x] configs
+[] tmux
+    [x] configs
