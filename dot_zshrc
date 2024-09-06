@@ -28,6 +28,12 @@ source $ZSH/oh-my-zsh.sh
 alias zshrc='nvim ~/.zshrc'
 alias szshrc='source ~/.zshrc'
 
+# source machine-specific .zshrc
+if [ -f ~/.zshrc_host ];
+then
+    source ~/.zshrc_host
+fi
+
 # source .env file
 if [ -f ~/.env ];
 then
@@ -52,4 +58,7 @@ alias nvimrc='nvim ~/.config/nvim/init.vim'
 # for nvim colors to match
 COLORTERM="truecolor"
 export BAT_THEME="Nord"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
