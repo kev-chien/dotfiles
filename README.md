@@ -34,7 +34,7 @@ The font I use is [Victor Mono](https://github.com/rubjo/victor-mono).
 
 ## What's Included
 [] zsh
-    [x] oh-my-zsh (automatically installed)
+    [x] oh-my-zsh
     [x] zsh-autosuggestions
     [x] zsh-syntax-highlighting
     [x] easypost-specific configs
@@ -43,3 +43,4 @@ The font I use is [Victor Mono](https://github.com/rubjo/victor-mono).
     [x] configs
 [] tmux
     [x] configs
+    [x] tpm: tmux plugin manager
