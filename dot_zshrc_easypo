@@ -1,5 +1,7 @@
 ## Easypost machine specific .zshrc
 
+alias cdep='cd /home/vagrant/code/easypost'
+
 # gcep - clone and cd into a phabricator repo
 function gcep {
     cdep
@@ -28,6 +30,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # python
 PATH=$PATH:/opt/python3.9/bin
+# note: install with
+# /opt/python3.9/bin/virtualenv ~/.venv
+PATH=$PATH:~/.venv/bin
 
 # go
 PATH=$PATH:/opt/golang1.20/bin
