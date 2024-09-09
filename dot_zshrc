@@ -49,6 +49,9 @@ gch() {
 
 # tmux conf
 alias tmuxrc='nvim ~/.tmux.conf'
+if [[ $TMUX_PANE ]]; then
+  HISTFILE=$HOME/.zsh_history_tmux_${TMUX_PANE:1}
+fi
 
 # nvim conf
 alias nvimrc='nvim ~/.config/nvim/init.vim'
