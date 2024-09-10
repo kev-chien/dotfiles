@@ -2,6 +2,12 @@
 
 alias cdep='cd /home/vagrant/code/easypost'
 
+# phab repo aliases
+for dir in /home/vagrant/code/easypost/*;
+do
+    alias ${dir##*/home/vagrant/code/easypost/}="cd $dir";
+done
+
 # gcep - clone and cd into a phabricator repo
 function gcep {
     cdep
