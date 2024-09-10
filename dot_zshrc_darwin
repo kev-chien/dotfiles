@@ -1,1 +1,5 @@
 ## Mac specific .zshrc
+
+alias lg='ssh lg'
+alias admin='ssh admin'
+alias dev='ssh dev'
