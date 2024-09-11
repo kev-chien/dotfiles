@@ -37,6 +37,9 @@ then
     set -a; source ~/.env; set +a
 fi
 
+# view path
+alias path='echo -e ${PATH//:/\\n}'
+
 # replace - find and replace in files
 function replace {
     find ./ -type f -exec sed -i -e "s/$1/$2/g" {} \;
