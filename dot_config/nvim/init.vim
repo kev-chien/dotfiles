@@ -77,7 +77,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
-Plug 'ojroques/nvim-osc52'
 Plug 'ibhagwan/smartyank.nvim'
 Plug 'roguelazer/variables_file.vim'
 Plug 'tpope/vim-eunuch' " file manipulation
@@ -103,6 +102,7 @@ Plug 'github/copilot.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'wsdjeg/vim-fetch'
 
 " Colors
 " Plug 'gruvbox-community/gruvbox'
@@ -209,11 +209,6 @@ noremap <c-S-Left> gT
 
 nnoremap <Leader>v :tabnew $MYVIMRC<cr>
 nnoremap <Leader>b :tabnew ~/.bashrc<cr>
-
-" Go to last active tab
-au TabLeave * let g:lasttab = tabpagenr()
-nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
-vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 
 " press // to search selected text in visual mode
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
@@ -440,25 +435,6 @@ require('smartyank').setup {
   -- for example, the default condition is:
   -- validate_yank = function() return vim.v.operator == "y" end,
 }
-
--- osc52
-local function copy(lines, _)
-  require('osc52').copy(table.concat(lines, '\n'))
-end
-
-local function paste()
-  return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
-end
-
-vim.g.clipboard = {
-  name = 'osc52',
-  copy = {['+'] = copy, ['*'] = copy},
-  paste = {['+'] = paste, ['*'] = paste},
-}
-
--- Now the '+' register will copy to system clipboard using OSC52
-vim.keymap.set('v', '<leader>y', '"+y')
-vim.keymap.set('n', '<leader>yy', '"+yy')
 EOF
 
  " firenvim (for OSX only)
