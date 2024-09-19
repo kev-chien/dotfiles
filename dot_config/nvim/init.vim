@@ -499,7 +499,6 @@ nmap <silent> <leader>rf <Plug>(lcn-references)
 nmap <silent> <leader>dr <Plug>(lcn-symbols)
 
 " Python
-"let g:python3_host_prog = "~/.venv/bin/python"
 
 " On save call Isort
 let g:vim_isort_python_version = 'python3'
