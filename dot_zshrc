@@ -58,6 +58,7 @@ fi
 
 # nvim conf
 alias nvimrc='nvim ~/.config/nvim/init.vim'
+alias lvim='NVIM_APPNAME=lvim nvim'
 # for nvim colors to match
 COLORTERM="truecolor"
 export BAT_THEME="Nord"
