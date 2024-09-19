@@ -85,8 +85,8 @@ Plug 'tpope/vim-fugitive', { 'tag': 'v2.3' } " using v2.3 so it works with airli
 Plug 'kamykn/spelunker.vim'
 Plug 'kamykn/popup-menu.nvim' " for spelunker
 Plug 'bkad/CamelCaseMotion'
-" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-" Plug 'Pocco81/auto-save.nvim'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'Pocco81/auto-save.nvim' " for auto-saving with firenvim
 Plug 'svban/YankAssassin.vim'
 Plug 'tpope/vim-rhubarb'
 Plug 'lanej/vim-phabricator'
@@ -115,7 +115,6 @@ Plug 'cormacrelf/vim-colors-github'
 " need to add `export BAT_THEME="Nord"` to your .bashrc
 " and, add `COLORTERM="truecolor"` to your .bashrc
 " https://github.com/junegunn/fzf.vim/issues/969#issuecomment-611611154
-
 
 " LSP-related plugins
 Plug 'neovim/nvim-lspconfig'
@@ -437,7 +436,7 @@ require('smartyank').setup {
 }
 EOF
 
- " firenvim (for OSX only)
+" firenvim (for OSX only)
 " https://github.com/glacambre/firenvim/blob/132979166a02319f0b49815135e60a4e4599de91/README.md
 if exists('g:started_by_firenvim')
   colorscheme github
@@ -453,8 +452,13 @@ if exists('g:started_by_firenvim')
   inoremap <D-v> <C-R><C-O>+
   cnoremap <D-v> <C-R><C-O>+
 else
-    " colorscheme nord
+lua<<EOF
+        require("auto-save").setup {
+            enabled = false
+        }
+EOF
 endif
+
 au BufEnter github.com_*.txt set filetype=markdown
 au BufEnter phab.easypo.net_*.txt set filetype=markdown
 au BufEnter go.dev_play_*.txt set filetype=go
@@ -495,7 +499,7 @@ nmap <silent> <leader>rf <Plug>(lcn-references)
 nmap <silent> <leader>dr <Plug>(lcn-symbols)
 
 " Python
-let g:python3_host_prog = "~/.venv/bin/python"
+"let g:python3_host_prog = "~/.venv/bin/python"
 
 " On save call Isort
 let g:vim_isort_python_version = 'python3'
@@ -632,4 +636,3 @@ au BufRead,BufNewFile .env-override set filetype=sh
 au BufRead,BufNewFile .env-ci set filetype=sh
 au BufRead,BufNewFile .env-test set filetype=sh
 au BufRead,BufNewFile .env-epci-mysql57 set filetype=sh
-
