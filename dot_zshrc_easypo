@@ -1,5 +1,9 @@
 ## Easypost machine specific .zshrc
 
+# reset colors to default
+export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+
+mkdir -p '/home/vagrant/code/easypost'
 alias cdep='cd /home/vagrant/code/easypost'
 
 # phab repo aliases
@@ -35,10 +39,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # python
-PATH=$PATH:/opt/python3.9/bin
+# PATH=$PATH:/opt/python3.9/bin
 # note: install with
 # /opt/python3.9/bin/virtualenv ~/.venv
-PATH=$PATH:~/.venv/bin
+PATH=~/.venv/bin:$PATH
 
 # go
 PATH=$PATH:/opt/golang1.20/bin
@@ -65,10 +69,10 @@ export CODE_DIR="/home/vagrant/code/easypost"
 
 function start-usps-services {
     cd ~/code/easypost/uspstoolbox/devvm
-    just run_usps_services
+    just run_services
 }
 
 function stop-usps-services {
     cd ~/code/easypost/uspstoolbox/devvm
-    just stop_usps_services
+    just stop_services
 }
