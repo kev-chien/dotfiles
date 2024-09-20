@@ -66,6 +66,8 @@ export BAT_THEME="Nord"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Github Copilot
+eval "$(gh copilot alias -- zsh)"
 # This function prompts the user for a query and provides the copilot command stdin as context
 ask_copilot() {
   prompt="$1"
