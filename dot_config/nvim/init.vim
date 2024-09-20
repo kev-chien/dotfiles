@@ -436,28 +436,6 @@ require('smartyank').setup {
 }
 EOF
 
-" firenvim (for OSX only)
-" https://github.com/glacambre/firenvim/blob/132979166a02319f0b49815135e60a4e4599de91/README.md
-if exists('g:started_by_firenvim')
-  colorscheme github
-  set background=light
-  let g:github_colors_soft = 1
-  set guifont=monospace:h23
-
-  " fix paste
-  tmap <D-v> <C-w>"+
-  nnoremap <D-v> "+p
-  vnoremap <D-v> "+p
-  inoremap <D-v> <C-R><C-O>+
-  cnoremap <D-v> <C-R><C-O>+
-else
-lua<<EOF
-        require("auto-save").setup {
-            enabled = false
-        }
-EOF
-endif
-
 " lualine
 lua << EOF
 require('lualine').setup {
@@ -486,6 +464,35 @@ require('lualine').setup {
   extensions = {}
 }
 EOF
+
+" firenvim (for OSX only)
+" https://github.com/glacambre/firenvim/blob/132979166a02319f0b49815135e60a4e4599de91/README.md
+if exists('g:started_by_firenvim')
+  colorscheme github
+  set background=light
+  let g:github_colors_soft = 1
+  set guifont=monospace:h23
+
+  " fix paste
+  tmap <D-v> <C-w>"+
+  nnoremap <D-v> "+p
+  vnoremap <D-v> "+p
+  inoremap <D-v> <C-R><C-O>+
+  cnoremap <D-v> <C-R><C-O>+
+lua<<EOF
+require('lualine').setup {
+  options = {
+    theme = 'github',
+  },
+}
+EOF
+else
+lua<<EOF
+        require("auto-save").setup {
+            enabled = false
+        }
+EOF
+endif
 
 au BufEnter github.com_*.txt set filetype=markdown
 au BufEnter phab.easypo.net_*.txt set filetype=markdown
