@@ -72,7 +72,9 @@ Plug 'mbbill/undotree'
 Plug 'airblade/vim-gitgutter'
 Plug 'joeytwiddle/sexy_scroller.vim'
 Plug 'mileszs/ack.vim'
-Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'nvim-tree/nvim-web-devicons'
 " Plug 'dense-analysis/ale'
 Plug 'preservim/nerdtree'
 Plug 'godlygeek/tabular'
@@ -81,7 +83,7 @@ Plug 'ibhagwan/smartyank.nvim'
 Plug 'roguelazer/variables_file.vim'
 Plug 'tpope/vim-eunuch' " file manipulation
 Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-fugitive', { 'tag': 'v2.3' } " using v2.3 so it works with airline
+Plug 'tpope/vim-fugitive'
 Plug 'kamykn/spelunker.vim'
 Plug 'kamykn/popup-menu.nvim' " for spelunker
 Plug 'bkad/CamelCaseMotion'
@@ -108,7 +110,7 @@ Plug 'wsdjeg/vim-fetch'
 " Plug 'gruvbox-community/gruvbox'
 " Plug 'catppuccin/nvim', { 'tag': 'v0.2.4', 'as': 'catppuccin'}
 " Plug 'crusoexia/vim-monokai'
-Plug 'nordtheme/vim'
+Plug 'gbprod/nord.nvim'
 Plug 'cormacrelf/vim-colors-github'
 
 " NOTES on getting fzf theme to match nord:
@@ -377,11 +379,9 @@ nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>r :NERDTreeFind<cr>
 
  " Vim fugitive
- " See https://github.com/tpope/vim-fugitive/tree/v2.3 (using v2.3 because of airline)
- " In newest version, can call :Git Blame
-nnoremap <Leader>s :Gblame<CR>
-nnoremap <Leader>o :Gbrowse!<CR>
-vnoremap <Leader>o :Gbrowse!<CR>
+nnoremap <Leader>s :Git blame<CR>
+nnoremap <Leader>o :GBrowse<CR>
+vnoremap <Leader>o :GBrowse<CR>
 
  " easygrep
 let g:EasyGrepFilesToExclude = '*.swp,*~,*.venv,*.pyc,tags'
@@ -442,7 +442,6 @@ if exists('g:started_by_firenvim')
   colorscheme github
   set background=light
   let g:github_colors_soft = 1
-  let g:airline_theme = "github"
   set guifont=monospace:h23
 
   " fix paste
@@ -458,6 +457,35 @@ lua<<EOF
         }
 EOF
 endif
+
+" lualine
+lua << EOF
+require('lualine').setup {
+  options = {
+    theme = 'nord',
+    section_separators = {'', ''},
+    component_separators = {'', ''},
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'},
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {},
+  },
+  tabline = {},
+  extensions = {}
+}
+EOF
 
 au BufEnter github.com_*.txt set filetype=markdown
 au BufEnter phab.easypo.net_*.txt set filetype=markdown
