@@ -1,5 +1,7 @@
 return {
-  { "gbprod/nord.nvim" },
+  {
+    "gbprod/nord.nvim",
+  },
   {
     "LazyVim/LazyVim",
     opts = {
