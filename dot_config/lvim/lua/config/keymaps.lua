@@ -17,11 +17,13 @@ vim.keymap.set("v", "x", '"_x', { noremap = true })
 -- paste without overwriting the default register
 vim.keymap.set("x", "p", '"_dP', { noremap = true })
 
--- disable S-Up, S-Down (use A-k, A-j instead)
-vim.keymap.set("n", "<S-Up>", "<nop>", { noremap = true })
-vim.keymap.set("n", "<S-Down>", "<nop>", { noremap = true })
-vim.keymap.set("v", "<S-Up>", "<nop>", { noremap = true })
-vim.keymap.set("v", "<S-Down>", "<nop>", { noremap = true })
+-- Move Lines
+vim.keymap.set("n", "<S-Down>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
+vim.keymap.set("n", "<S-Up>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
+vim.keymap.set("i", "<S-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+vim.keymap.set("i", "<S-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+vim.keymap.set("v", "<S-Down>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+vim.keymap.set("v", "<S-Up>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- Tab, S-Tab to indent/unindent
 vim.keymap.set("n", "<Tab>", ">>", { noremap = true })
