@@ -34,7 +34,12 @@ vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true })
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = true })
 
 -- Yank filename to system clipboard
-vim.keymap.set("n", "<leader>n", "<cmd>let @*=expand('%')<cr>", { noremap = true, desc = "Yank filename" })
+vim.keymap.set(
+  "n",
+  "<leader>n",
+  "<cmd>let @*=expand('%')<cr><cmd>echo expand('%')<cr>",
+  { noremap = true, desc = "Yank filename" }
+)
 
 -- Vim fugitive
 vim.keymap.set("n", "<leader>gm", "<cmd>Git blame<cr>", { noremap = true, desc = "Git blame" })
