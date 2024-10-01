@@ -32,3 +32,11 @@ vim.keymap.set("v", "<Tab>", ">gv", { noremap = true })
 vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true })
 -- TODO: fix this mapping
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = true })
+
+-- Yank filename to system clipboard
+vim.keymap.set("n", "<leader>n", "<cmd>let @*=expand('%')<cr>", { noremap = true, desc = "Yank filename" })
+
+-- Vim fugitive
+vim.keymap.set("n", "<leader>gm", "<cmd>Git blame<cr>", { noremap = true, desc = "Git blame" })
+vim.keymap.set("n", "<leader>o", "<cmd>GBrowse!<cr>", { noremap = true, desc = "GBrowse (clipboard)" })
+vim.keymap.set("v", "<leader>o", "<esc><cmd>'<,'>GBrowse!<cr>", { noremap = true, desc = "GBrowse (clipboard)" })

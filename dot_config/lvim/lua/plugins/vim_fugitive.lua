@@ -1,17 +1,21 @@
 return {
   {
     "tpope/vim-fugitive",
-    keys = {
-      {
-        "<leader>gm",
-        "<cmd>Git blame<cr>",
-        desc = "Git blame",
-      },
-      {
-        "<leader>o",
-        "<cmd>GBrowse<cr>",
-        desc = "Gbrowse",
-      },
+    dependencies = {
+      "tpope/vim-rhubarb",
+      "lanej/vim-phabricator",
     },
+  },
+  -- github
+  {
+    "tpope/vim-rhubarb",
+  },
+  -- phabricator
+  {
+    "lanej/vim-phabricator",
+    config = function()
+      vim.g.phabricator_hosts = { "phab.easypo.net" }
+      vim.g.phabricator_api_token = vim.env.PHAB_TOKEN
+    end,
   },
 }
