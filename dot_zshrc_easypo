@@ -41,7 +41,7 @@ function adu {
 PATH=~/.venv/bin:$PATH
 
 # go
-PATH=$PATH:/opt/golang1.20/bin
+PATH=$PATH:/opt/golang1.23/bin
 PATH=$PATH:/home/vagrant/go/bin/
 
 # ruby
