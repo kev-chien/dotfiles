@@ -52,14 +52,15 @@ gch() {
 
 # tmux conf
 alias tmuxrc='nvim ~/.tmux.conf'
+mkdir -p ~/.zsh_history_tmux
 if [[ $TMUX_PANE ]]; then
-  HISTFILE=$HOME/.zsh_history_tmux_${TMUX_PANE:1}
+  HISTFILE=$HOME/.zsh_history_tmux/${TMUX_PANE:1}
 fi
 
 # nvim conf
-alias nvimrc='nvim ~/.config/nvim/init.vim'
-alias lvim='NVIM_APPNAME=lvim nvim'
-alias lvimrc='lvim ~/.config/lvim/'
+alias nvimrc='cd ~/.config/nvim/ && nvim .'
+alias firenvimrc='cd ~/.config/firenvim/ && nvim .'
+alias firenvim='NVIM_APPNAME=firenvim nvim'
 # for nvim colors to match
 COLORTERM="truecolor"
 export BAT_THEME="Nord"
@@ -79,3 +80,6 @@ ask_copilot() {
 # nvm (node version manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# lazygit
+alias lg=lazygit
