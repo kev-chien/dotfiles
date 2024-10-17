@@ -83,3 +83,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # lazygit
 alias lgit=lazygit
+
+# go clean test cache
+alias gctc='go clean -testcache'
