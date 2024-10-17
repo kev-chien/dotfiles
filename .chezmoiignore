@@ -7,3 +7,4 @@ README.md
 {{ if contains "easypo" .chezmoi.fqdnHostname | not }}
 .zshrc_easypo
 {{ end }}
+.config/nvim/lazy-lock.json
