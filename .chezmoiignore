@@ -3,7 +3,7 @@ README.md
 .oh-my-zsh/**/*.zwc
 {{ if ne .chezmoi.os "darwin" }}
 .zshrc_darwin
-Library/Preferences/com.googlecode.iterm2.plist
+Library
 {{ end }}
 {{ if contains "easypo" .chezmoi.fqdnHostname | not }}
 .zshrc_easypo
