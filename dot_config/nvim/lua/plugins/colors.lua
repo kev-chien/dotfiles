@@ -3,7 +3,7 @@ return {
     "kev-chien/nord.nvim",
   },
   {
-    "nyoom-engineering/oxocarbon.nvim",
+    "kev-chien/oxocarbon.nvim",
   },
   {
     "rebelot/kanagawa.nvim",
@@ -12,12 +12,12 @@ return {
         theme = {
           all = {
             ui = {
-              bg_gutter = "none"
-            }
-          }
-        }
-      }
-    }
+              bg_gutter = "none",
+            },
+          },
+        },
+      },
+    },
   },
   {
     "projekt0n/github-nvim-theme",
