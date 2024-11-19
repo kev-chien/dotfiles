@@ -7,3 +7,5 @@ alias dev='ssh dev'
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 alias zshrc_darwin='nvim ~/.zshrc_darwin'
+
+alias tmx='tmux attach'
