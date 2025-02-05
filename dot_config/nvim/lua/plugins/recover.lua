@@ -1,0 +1,5 @@
+return {
+  {
+    "chrisbra/recover.vim",
+  },
+}

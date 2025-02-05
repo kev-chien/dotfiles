@@ -100,15 +100,17 @@ return {
       local open_with_trouble = function(...)
         return require("trouble.sources.telescope").open(...)
       end
-      local find_files_no_ignore = function()
+      local find_files_hide_ignored = function()
         local action_state = require("telescope.actions.state")
         local line = action_state.get_current_line()
-        LazyVim.pick("find_files", { no_ignore = true, default_text = line })()
+        LazyVim.pick("find_files", { no_ignore = false, default_text = line })()
+        vim.api.nvim_echo({ { "no_ignore = false", "WarningMsg" } }, false, {})
       end
-      local find_files_with_hidden = function()
+      local find_files_hide_hidden = function()
         local action_state = require("telescope.actions.state")
         local line = action_state.get_current_line()
-        LazyVim.pick("find_files", { hidden = true, default_text = line })()
+        LazyVim.pick("find_files", { hidden = false, default_text = line })()
+        vim.api.nvim_echo({ { "hidden files = false", "WarningMsg" } }, false, {})
       end
 
       local function find_command()
@@ -146,12 +148,13 @@ return {
           end,
           mappings = {
             i = {
-              ["<c-t>"] = open_with_trouble,
-              ["<a-t>"] = open_with_trouble,
-              ["<a-i>"] = find_files_no_ignore,
-              ["<a-h>"] = find_files_with_hidden,
-              ["<C-Down>"] = actions.cycle_history_next,
-              ["<C-Up>"] = actions.cycle_history_prev,
+              ["<C-t>"] = open_with_trouble,
+              ["<C-I>"] = find_files_hide_ignored,
+              ["<C-H>"] = find_files_hide_hidden,
+              -- ["<C-k"] = actions.move_selection_previous,
+              -- ["<C-j"] = actions.move_selection_next,
+              -- ["<C-n>"] = actions.cycle_history_next,
+              -- ["<C-p>"] = actions.cycle_history_prev,
               ["<C-f>"] = actions.preview_scrolling_down,
               ["<C-b>"] = actions.preview_scrolling_up,
             },
@@ -159,6 +162,7 @@ return {
               ["q"] = actions.close,
             },
           },
+          file_ignore_patterns = { "vendor" },
         },
         pickers = {
           find_files = {
