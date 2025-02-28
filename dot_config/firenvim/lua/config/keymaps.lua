@@ -45,3 +45,10 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>gm", "<cmd>Git blame<cr>", { noremap = true, desc = "Git blame" })
 vim.keymap.set("n", "<leader>o", "<cmd>GBrowse!<cr>", { noremap = true, desc = "GBrowse (clipboard)" })
 vim.keymap.set("v", "<leader>o", "<esc><cmd>'<,'>GBrowse!<cr>", { noremap = true, desc = "GBrowse (clipboard)" })
+
+-- Fix paste (for firenvim, in the browser)
+vim.keymap.set("t", "<D-v>", "<C-w>+", { noremap = true })
+vim.keymap.set("n", "<D-v>", '"+p', { noremap = true })
+vim.keymap.set("v", "<D-v>", '"+p', { noremap = true })
+vim.keymap.set("i", "<D-v>", "<C-R><C-O>+", { noremap = true })
+vim.keymap.set("c", "<D-v>", "<C-R><C-O>+", { noremap = true })
