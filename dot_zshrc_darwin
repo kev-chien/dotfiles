@@ -1,5 +1,7 @@
 ## Mac specific .zshrc
 
+PATH=/opt/nvim-macos-arm64/bin:$PATH
+
 alias lg='ssh lg'
 alias admin='ssh admin'
 alias dev='ssh dev'
@@ -9,3 +11,11 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 alias zshrc_darwin='nvim ~/.zshrc_darwin'
 
 alias tmx='tmux attach'
+
+[[ $(arch) == "arm64" ]] && eval "$(/opt/homebrew/bin/brew shellenv)" || eval "$(/usr/local/bin/brew shellenv)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export PATH="$PATH:$HOME/code/arcanist/bin"
