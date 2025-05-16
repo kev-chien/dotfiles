@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+selected=$(tmux list-windows -a -F "#{session_name}:#{window_index} #{window_name}" | fzf)
+
+if [ -n "$selected" ]; then
+  target=$(echo "$selected" | awk '{print $1}')
+  tmux switch-client -t "$target"
+fi
