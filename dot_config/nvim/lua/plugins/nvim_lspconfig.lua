@@ -38,6 +38,7 @@ return {
               staticcheck = true,
               directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
               semanticTokens = true,
+              buildFlags = { "-tags=development production integration" },
             },
           },
         },
