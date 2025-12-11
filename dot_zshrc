@@ -63,6 +63,8 @@ alias firenvimrc='cd ~/.config/firenvim/ && nvim .'
 alias firenvim='NVIM_APPNAME=firenvim nvim'
 # for nvim colors to match
 COLORTERM="truecolor"
+
+# bat conf
 export BAT_THEME="base16"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -80,6 +82,7 @@ ask_copilot() {
 # nvm (node version manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # lazygit
 alias lgit=lazygit
@@ -87,11 +90,16 @@ alias lgit=lazygit
 # go clean test cache
 alias gctc='go clean -testcache'
 
-# ll
+# ls/ll/la
+alias ls='eza -1'
 alias ll='eza --long --header --group --git --modified'
+alias la='eza --long --all'
 
 # colours
 alias colours='for i in {0..255}; do  printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
 
 # lazy
 alias lazy="cd ~/.local/share/nvim/lazy"
+
+# rbenv
+eval "$(rbenv init -)"
