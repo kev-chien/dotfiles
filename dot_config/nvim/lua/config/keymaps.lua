@@ -30,13 +30,12 @@ vim.keymap.set("n", "<Tab>", ">>", { noremap = true })
 vim.keymap.set("n", "<S-Tab>", "<<", { noremap = true })
 vim.keymap.set("v", "<Tab>", ">gv", { noremap = true })
 vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true })
--- TODO: fix this mapping
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = true })
 
 -- Yank filename to system clipboard
 vim.keymap.set(
   "n",
-  "<leader>n",
+  "<leader>i",
   "<cmd>let @*=expand('%')<cr><cmd>echo expand('%')<cr>",
   { noremap = true, desc = "Yank filename" }
 )
