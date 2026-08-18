@@ -1,3 +1,6 @@
 return {
-  { "rktjmp/hotpot.nvim" },
+  {
+    "rktjmp/hotpot.nvim",
+    version = "v1.0.0",
+  },
 }

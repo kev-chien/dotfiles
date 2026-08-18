@@ -2,7 +2,7 @@ return {
   "mason-org/mason.nvim",
   opts = {
     ensure_installed = {
-      "goimports",
+      "black",
       "cmakelang",
       "cmakelint",
       "docker-compose-language-service",

@@ -4,6 +4,7 @@ return {
   },
   {
     "kev-chien/oxocarbon.nvim",
+    branch = "lighten-base-02-03",
   },
   {
     "rebelot/kanagawa.nvim",
